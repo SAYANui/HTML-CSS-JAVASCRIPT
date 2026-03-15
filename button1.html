@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10 Styled Buttons</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 40px;
+            background-color: #f0f2f5;
+            text-align: center;
+        }
+
+        button {
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            padding: 12px 24px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        /* 1. The Classic Primary */
+        .btn-1 {
+            background-color: #007bff;
+            color: white;
+            border-radius: 4px;
+        }
+        .btn-1:hover { background-color: #0056b3; }
+
+        /* 2. Rounded Pill */
+        .btn-2 {
+            background-color: #28a745;
+            color: white;
+            border-radius: 50px;
+        }
+        .btn-2:hover { transform: scale(1.05); }
+
+        /* 3. Outline/Ghost */
+        .btn-3 {
+            background: transparent;
+            color: #17a2b8;
+            border: 2px solid #17a2b8;
+        }
+        .btn-3:hover {
+            background: #17a2b8;
+            color: white;
+        }
+
+        /* 4. Soft Neumorphic */
+        .btn-4 {
+            background: #f0f2f5;
+            color: #444;
+            border-radius: 10px;
+            box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
+        }
+        .btn-4:active {
+            box-shadow: inset 2px 2px 5px #bebebe, inset -2px -2px 5px #ffffff;
+        }
+
+        /* 5. Modern Gradient */
+        .btn-5 {
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(255, 65, 108, 0.4);
+        }
+
+        /* 6. Retro 3D (Clickable) */
+        .btn-6 {
+            background: #ffc107;
+            color: #333;
+            border-bottom: 5px solid #d39e00;
+            border-radius: 4px;
+        }
+        .btn-6:active {
+            border-bottom-width: 0;
+            margin-top: 5px;
+        }
+
+        /* 7. Dark Mode / Sleek */
+        .btn-7 {
+            background-color: #212529;
+            color: #f8f9fa;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* 8. Glassmorphism */
+        .btn-8 {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #333;
+        }
+
+        /* 9. Glowing Neon */
+        .btn-9 {
+            background: #000;
+            color: #0ff;
+            border: 1px solid #0ff;
+            text-shadow: 0 0 5px #0ff;
+            box-shadow: 0 0 10px #0ff;
+        }
+        .btn-9:hover {
+            background: #0ff;
+            color: #000;
+        }
+
+        /* 10. Minimalist Underline */
+        .btn-10 {
+            background: none;
+            color: #6c757d;
+            border-bottom: 2px solid transparent;
+        }
+        .btn-10:hover {
+            color: #343a40;
+            border-bottom: 2px solid #343a40;
+        }
+
+    </style>
+</head>
+<body>
+
+    <button class="btn-1">Primary Blue</button>
+    <button class="btn-2">Pill Shape</button>
+    <button class="btn-3">Outline Style</button>
+    <button class="btn-4">Neumorphic</button>
+    <button class="btn-5">Gradient Sky</button>
+    <button class="btn-6">3D Retro</button>
+    <button class="btn-7">Dark Mode</button>
+    <button class="btn-8">Glassmorphic</button>
+    <button class="btn-9">Neon Glow</button>
+    <button class="btn-10">Minimalist</button>
+
+</body>
+</html>

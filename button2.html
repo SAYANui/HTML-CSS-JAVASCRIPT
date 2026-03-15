@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind + Libraries Buttons</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Press+Start+2P&display=swap" rel="stylesheet">
+    
+    <style>
+        .font-bungee { font-family: 'Bungee Spice', cursive; }
+        .font-pixel { font-family: 'Press Start 2P', cursive; }
+    </style>
+</head>
+<body class="bg-slate-900 p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 items-center justify-items-center">
+
+    <button class="group bg-indigo-600 text-white px-6 py-3 rounded-lg flex items-center gap-2 hover:bg-indigo-500 transition-colors">
+        <i class="fa-solid fa-rocket group-hover:animate-bounce"></i>
+        <span>Launch App</span>
+    </button>
+
+    <button class="font-pixel text-[10px] bg-yellow-400 text-black px-4 py-3 border-r-4 border-b-4 border-black active:border-0 active:translate-y-1">
+        INSERT COIN
+    </button>
+
+    <div class="relative group">
+        <div class="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+        <button class="relative px-7 py-4 bg-black rounded-lg leading-none flex items-center divide-x divide-gray-600">
+            <span class="pr-6 text-indigo-400">Gradient</span>
+            <span class="pl-6 text-amber-400 group-hover:text-gray-100 transition duration-200">Glow</span>
+        </button>
+    </div>
+
+    <button class="font-bungee text-2xl px-8 py-2 bg-zinc-800 rounded-full border-2 border-zinc-600 shadow-[0_0_15px_rgba(255,255,255,0.2)]">
+        RETRO
+    </button>
+
+    <button class="relative overflow-hidden bg-emerald-500 text-white px-8 py-3 rounded-full hover:scale-110 transition-transform duration-500 ease-in-out">
+        <span class="relative z-10">Expandable</span>
+        <div class="absolute inset-0 bg-emerald-300 scale-0 group-hover:scale-150 transition-transform rounded-full opacity-20"></div>
+    </button>
+
+    <button class="bg-[#1DA1F2] text-white h-14 w-14 rounded-full flex items-center justify-center text-xl shadow-lg ring-4 ring-sky-500/30 hover:ring-sky-500/60 transition-all">
+        <i class="fa-brands fa-twitter"></i>
+    </button>
+
+    <button class="bg-rose-500 text-white px-6 py-3 rounded-md flex items-center gap-3 disabled:opacity-75" disabled>
+        <div class="h-2 w-2 bg-white rounded-full animate-ping"></div>
+        Live Syncing
+    </button>
+
+    <button class="bg-white text-black border-2 border-black px-6 py-2 font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
+        BRUTALIST
+    </button>
+
+    <button class="group relative p-[2px] rounded-full overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 animate-spin group-hover:animate-[spin_1s_linear_infinite]"></div>
+        <div class="relative bg-slate-900 px-6 py-2 rounded-full text-white text-sm">
+            Spinning Border
+        </div>
+    </button>
+
+    <button class="relative bg-orange-600 text-white px-8 py-3 rounded-sm overflow-hidden group">
+        <span class="relative z-10">Hover Slide</span>
+        <div class="absolute bottom-0 left-0 w-full h-0 bg-white/20 transition-all duration-300 group-hover:h-full"></div>
+    </button>
+
+</body>
+</html>
