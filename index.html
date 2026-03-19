@@ -6,6 +6,78 @@
   <title>Document</title>
 </head>
 <body>
-<h1> hello </h1>
+<h1> <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #0a0a0a;
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .btn-3d {
+            position: relative;
+            padding: 15px 35px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #fff;
+            background: #1a1a1a;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.3s ease;
+            /* The 3D Base */
+            box-shadow: 0 8px 0 #000, 
+                        0 15px 20px rgba(0, 0, 0, 0.35);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Hover Animation & Glow */
+        .btn-3d:hover {
+            background: #222;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 0 #000, 
+                        0 0 25px rgba(0, 212, 255, 0.6), /* Cyan Glow */
+                        0 20px 30px rgba(0, 0, 0, 0.4);
+            color: #00d4ff;
+        }
+
+        /* Click Effect (Pressing the button down) */
+        .btn-3d:active {
+            transform: translateY(6px);
+            box-shadow: 0 2px 0 #000, 
+                        0 5px 10px rgba(0, 0, 0, 0.5);
+            transition: all 0.1s;
+        }
+
+        /* Subtle Inner Light */
+        .btn-3d::after {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            height: 40%;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px 8px 0 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="btn-3d">Arcade Legend</button>
+
+</body>
+</html></h1>
 </body>
 </html>
