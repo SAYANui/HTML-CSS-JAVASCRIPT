@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10 Mindblowing Buttons</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --primary: #3b82f6;
+            --accent: #f43f5e;
+        }
+
+        body {
+            background-color: var(--bg);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            padding: 50px;
+            font-family: 'Segoe UI', sans-serif;
+            justify-items: center;
+            align-items: center;
+        }
+
+        button {
+            position: relative;
+            padding: 15px 35px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            outline: none;
+            background: none;
+            color: white;
+        }
+
+        /* 1. NEON GLOW */
+        .btn-1 {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            text-transform: uppercase;
+        }
+        .btn-1:hover {
+            box-shadow: 0 0 20px var(--primary), inset 0 0 10px var(--primary);
+            text-shadow: 0 0 5px white;
+        }
+
+        /* 2. LIQUID FILL */
+        .btn-2 {
+            border: 2px solid white;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .btn-2::before {
+            content: '';
+            position: absolute;
+            top: 100%; left: 0; width: 100%; height: 100%;
+            background: var(--accent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+        .btn-2:hover::before { top: 0; }
+
+        /* 3. 3D PUSH */
+        .btn-3 {
+            background: #22c55e;
+            border-radius: 8px;
+            box-shadow: 0 8px 0 #166534;
+        }
+        .btn-3:active {
+            transform: translateY(4px);
+            box-shadow: 0 4px 0 #166534;
+        }
+
+        /* 4. GLASSMORPHISM */
+        .btn-4 {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+        }
+        .btn-4:hover { background: rgba(255, 255, 255, 0.2); }
+
+        /* 5. ANIMATED GRADIENT BORDER */
+        .btn-5 {
+            background: #000;
+            padding: 2px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        .btn-5 span {
+            display: block;
+            background: var(--bg);
+            padding: 13px 33px;
+            border-radius: 8px;
+        }
+        .btn-5:hover {
+            background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+            background-size: 400%;
+            animation: animate 20s linear infinite;
+        }
+        @keyframes animate { 0% {background-position: 0 0;} 50% {background-position: 400% 0;} 100% {background-position: 0 0;} }
+
+        /* 6. SKEW SLIDE */
+        .btn-6 {
+            border: 2px solid white;
+            overflow: hidden;
+        }
+        .btn-6::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 100%; height: 100%;
+            background: white;
+            transform: skewX(-20deg);
+            transition: 0.4s;
+            z-index: -1;
+        }
+        .btn-6:hover::after { left: 100%; }
+        .btn-6:hover { color: var(--bg); background: white; }
+
+        /* 7. THE PULSE */
+        .btn-7 {
+            background: #8b5cf6;
+            border-radius: 50px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(139, 92, 246, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0); }
+        }
+
+        /* 8. RETRO CYBER */
+        .btn-8 {
+            background: #fde047;
+            color: black;
+            clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+        }
+        .btn-8:hover { transform: scale(1.1) rotate(-2deg); }
+
+        /* 9. SHINY SHIMMER */
+        .btn-9 {
+            background: linear-gradient(110deg, #334155 45%, #64748b 50%, #334155 55%);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite;
+            border-radius: 5px;
+        }
+        @keyframes shimmer { 0% { background-position: -100% 0; } 100% { background-position: 100% 0; } }
+
+        /* 10. FLOATING REVEAL */
+        .btn-10 {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .btn-10:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+        }
+        .btn-10::before {
+            content: '🚀';
+            position: absolute;
+            right: 10px; opacity: 0;
+            transition: 0.3s;
+        }
+        .btn-10:hover::before { opacity: 1; right: -30px; }
+
+    </style>
+</head>
+<body>
+
+    <button class="btn-1">Neon Glow</button>
+    <button class="btn-2">Liquid Fill</button>
+    <button class="btn-3">3D Push</button>
+    <button class="btn-4">Glassmorphic</button>
+    <div class="btn-5"><span>Rainbow Border</span></div>
+    <button class="btn-6">Skew Slide</button>
+    <button class="btn-7">Pulse Wave</button>
+    <button class="btn-8">Cyber Retro</button>
+    <button class="btn-9">Steel Shimmer</button>
+    <button class="btn-10">Floating Icon</button>
+
+</body>
+</html>
