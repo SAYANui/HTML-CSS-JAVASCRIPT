@@ -1,81 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @keyframes border-glow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        .glass-effect {
-            background: rgba(13, 17, 23, 0.8);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-        }
-        .animated-border {
-            height: 2px;
-            width: 100%;
-            background: linear-gradient(90deg, #00ffff, #bd00ff, #00ffff);
-            background-size: 200% 200%;
-            animation: border-glow 4s linear infinite;
-        }
-        .nav-item {
-            position: relative;
-            transition: all 0.3s ease;
-        }
-        .nav-item::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background: #00ffff;
-            transition: width 0.3s ease;
-        }
-        .nav-item:hover::after {
-            width: 100%;
-        }
-        .nav-item:hover {
-            color: #00ffff;
-            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-        }
-    </style>
+<style>
+  .custom-button {
+    /* Layout & Spacing */
+    display: inline-block;
+    padding: 12px 32px;
+    
+    /* Typography */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    
+    /* Styling */
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    
+    /* Effects */
+    box-shadow: 0 4px 15px rgba(110, 142, 251, 0.4);
+    transition: all 0.3s ease;
+    outline: none;
+  }
+
+  /* Hover State: Grows slightly and glows more */
+  .custom-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(110, 142, 251, 0.6);
+    background: linear-gradient(135deg, #5a7df9, #965df0);
+  }
+
+  /* Active State: "Pushes" down when clicked */
+  .custom-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(110, 142, 251, 0.4);
+  }
+</style>
 </head>
-<body class="bg-[#0b0e14]">
+<body>
 
-    <nav class="fixed top-0 w-full z-50 glass-effect">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex-shrink-0 flex items-center">
-                    <span class="text-2xl font-black tracking-widest text-white uppercase">
-                        SAYAN<span class="text-[#00ffff] drop-shadow-[0_0_8px_#00ffff]">UI</span>
-                    </span>
-                </div>
-
-                <div class="hidden md:flex items-center space-x-10">
-                    <a href="#" class="nav-item text-sm font-bold uppercase tracking-widest text-gray-300">Home</a>
-                    <a href="#" class="nav-item text-sm font-bold uppercase tracking-widest text-gray-300">Projects</a>
-                    <a href="#" class="nav-item text-sm font-bold uppercase tracking-widest text-gray-300">DSA</a>
-                    <a href="#" class="nav-item text-sm font-bold uppercase tracking-widest text-gray-300">Arcade</a>
-                    
-                    <button class="ml-6 px-6 py-2 bg-transparent border border-[#bd00ff] text-[#bd00ff] font-bold rounded-lg hover:bg-[#bd00ff] hover:text-white hover:shadow-[0_0_20px_#bd00ff] transition-all duration-500 uppercase text-xs tracking-widest">
-                        Get Started
-                    </button>
-                </div>
-
-                <div class="md:hidden flex items-center">
-                    <button class="text-[#00ffff]">
-                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="animated-border"></div>
-    </nav>
+  <button class="custom-button">Get Started</button>
 
 </body>
 </html>
