@@ -4,98 +4,137 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zomato Clone | Food Delivery & Dining</title>
-    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url('https://b.zmtcdn.com/webfront/0b1c041284ae1f0217b0d2d7334749861632720857.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
 </head>
-<body>
+<body class="font-sans text-gray-800 bg-white antialiased">
 
-    <header class="hero">
-        <nav class="navbar">
-            <div class="nav-left">
-                <a href="#" class="get-app"><i class="fa-solid fa-mobile-screen-button"></i> Get the App</a>
+    <header class="hero-bg h-[calc(60vh)] min-h-[450px] w-full flex flex-col justify-between pb-12">
+        <nav class="max-w-[1100px] w-full mx-auto px-4 h-16 flex items-center justify-between text-white text-[14px] font-light">
+            <div class="flex items-center">
+                <a href="#" class="hover:scale-105 transition-transform duration-200">
+                    <i class="fa-solid fa-mobile-screen-button mr-2"></i>Get the App
+                </a>
             </div>
-            <div class="nav-right">
-                <a href="#" class="nav-link">Investor Relations</a>
-                <a href="#" class="nav-link">Add restaurant</a>
-                <a href="#" class="nav-link">Log in</a>
-                <a href="#" class="nav-link">Sign up</a>
+            <div class="flex items-center gap-7 tracking-wide">
+                <a href="#" class="hover:opacity-80 transition-opacity">Investor Relations</a>
+                <a href="#" class="hover:opacity-80 transition-opacity">Add restaurant</a>
+                <a href="#" class="hover:opacity-80 transition-opacity">Log in</a>
+                <a href="#" class="hover:opacity-80 transition-opacity">Sign up</a>
             </div>
         </nav>
 
-        <div class="hero-content">
-            <h1 class="brand-logo">zomato</h1>
-            <p class="hero-subtitle">Discover the best food & drinks in your city</p>
+        <div class="max-w-[1100px] w-full mx-auto px-4 flex flex-col items-center justify-center flex-grow text-center text-white mb-6">
+            <h1 class="text-[64px] font-black italic tracking-tighter select-none mb-2">zomato</h1>
+            <p class="text-[32px] font-normal leading-tight max-w-[800px] mb-8">
+                Discover the best food & drinks in your city
+            </p>
             
-            <div class="search-container">
-                <div class="location-input">
-                    <i class="fa-solid fa-location-dot geo-icon"></i>
-                    <input type="text" placeholder="Kolkata, West Bengal">
-                    <i class="fa-solid fa-caret-down caret-icon"></i>
+            <div class="bg-white text-gray-600 rounded-lg shadow-md flex items-center w-full max-w-[760px] h-[54px] overflow-hidden px-3">
+                <div class="flex items-center flex-1 h-full min-w-[180px]">
+                    <i class="fa-solid fa-location-dot text-red-400 text-lg mx-2"></i>
+                    <input type="text" placeholder="Kolkata, West Bengal" class="w-full text-[14px] text-gray-700 outline-none placeholder-gray-400 border-none bg-transparent">
+                    <i class="fa-solid fa-caret-down text-gray-500 text-xs mx-2 cursor-pointer"></i>
                 </div>
-                <div class="search-divider"></div>
-                <div class="food-input">
-                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                    <input type="text" placeholder="Search for restaurant, cuisine or a dish">
+                
+                <div class="h-5 w-[1px] bg-gray-300 self-center mx-1"></div>
+                
+                <div class="flex items-center flex-[2] h-full pl-2">
+                    <i class="fa-solid fa-magnifying-glass text-gray-400 text-base mx-2"></i>
+                    <input type="text" placeholder="Search for restaurant, cuisine or a dish" class="w-full text-[14px] text-gray-700 outline-none placeholder-gray-400 border-none bg-transparent">
                 </div>
             </div>
         </div>
     </header>
 
-    <section class="container features">
-        <div class="feature-card">
-            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=500&q=80" alt="Order Online">
-            <h3>Order Online</h3>
-            <p>Stay home and order to your doorstep</p>
-        </div>
-        <div class="feature-card">
-            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=500&q=80" alt="Dining">
-            <h3>Dining</h3>
-            <p>View the city's favourite dining venues</p>
-        </div>
-    </section>
-
-    <section class="container collections">
-        <h2>Collections</h2>
-        <div class="collection-subtitle-row">
-            <p class="subtitle">Explore curated lists of top restaurants, cafes, and bars in your area, based on trends</p>
-            <a href="#" class="all-collections">All collections in Kolkata <i class="fa-solid fa-caret-right"></i></a>
-        </div>
-
-        <div class="collection-grid">
-            <div class="collection-card" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.05) 70%), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=500&q=80');">
-                <div class="collection-text">
-                    <h4>Top Trending Spots</h4>
-                    <p>32 Places <i class="fa-solid fa-caret-right"></i></p>
-                </div>
+    <section class="max-w-[1100px] mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div class="group border border-gray-200 rounded-xl overflow-hidden cursor-pointer hover:shadow-md transition-shadow duration-200">
+            <div class="h-[160px] overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=500&q=80" alt="Order Online" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
             </div>
-            <div class="collection-card" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.05) 70%), url('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=500&q=80');">
-                <div class="collection-text">
-                    <h4>Best Luxury Dining</h4>
-                    <p>18 Places <i class="fa-solid fa-caret-right"></i></p>
-                </div>
+            <div class="p-4 bg-white">
+                <h3 class="text-[18px] font-medium text-gray-800">Order Online</h3>
+                <p class="text-[14px] text-gray-500 mt-1">Stay home and order to your doorstep</p>
             </div>
-            <div class="collection-card" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.05) 70%), url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=500&q=80');">
-                <div class="collection-text">
-                    <h4>Freshly Baked Pizza</h4>
-                    <p>25 Places <i class="fa-solid fa-caret-right"></i></p>
-                </div>
+        </div>
+        
+        <div class="group border border-gray-200 rounded-xl overflow-hidden cursor-pointer hover:shadow-md transition-shadow duration-200">
+            <div class="h-[160px] overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=500&q=80" alt="Dining" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
             </div>
-            <div class="collection-card" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.05) 70%), url('https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=500&q=80');">
-                <div class="collection-text">
-                    <h4>Sweet Tooth Cravings</h4>
-                    <p>12 Places <i class="fa-solid fa-caret-right"></i></p>
-                </div>
+            <div class="p-4 bg-white">
+                <h3 class="text-[18px] font-medium text-gray-800">Dining</h3>
+                <p class="text-[14px] text-gray-500 mt-1">View the city's favourite dining venues</p>
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="container footer-content">
-            <div class="footer-top">
-                <h2 class="footer-logo">zomato</h2>
+    <section class="max-w-[1100px] mx-auto px-4 py-8">
+        <h2 class="text-[32px] font-medium text-gray-800 tracking-wide">Collections</h2>
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mt-1 mb-6 text-[15px]">
+            <p class="text-gray-500 font-light max-w-[750px]">
+                Explore curated lists of top restaurants, cafes, and bars in your area, based on trends
+            </p>
+            <a href="#" class="text-red-400 flex items-center shrink-0 hover:text-red-500 transition-colors">
+                All collections in Kolkata <i class="fa-solid fa-caret-right ml-1.5 text-xs"></i>
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="relative h-[320px] rounded-md overflow-hidden bg-cover bg-center cursor-pointer group shadow-inner" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 60%), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=500&q=80');">
+                <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
+                    <h4 class="text-[16px] font-medium tracking-wide">Top Trending Spots</h4>
+                    <p class="text-[13px] flex items-center mt-0.5 opacity-90">
+                        32 Places <i class="fa-solid fa-caret-right ml-1.5 text-[10px]"></i>
+                    </p>
+                </div>
             </div>
-            <hr class="footer-hr">
-            <p class="footer-credit">© 2026 Zomato Clone. Created for demonstration purposes.</p>
+
+            <div class="relative h-[320px] rounded-md overflow-hidden bg-cover bg-center cursor-pointer group shadow-inner" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 60%), url('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=500&q=80');">
+                <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
+                    <h4 class="text-[16px] font-medium tracking-wide">Best Luxury Dining</h4>
+                    <p class="text-[13px] flex items-center mt-0.5 opacity-90">
+                        18 Places <i class="fa-solid fa-caret-right ml-1.5 text-[10px]"></i>
+                    </p>
+                </div>
+            </div>
+
+            <div class="relative h-[320px] rounded-md overflow-hidden bg-cover bg-center cursor-pointer group shadow-inner" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 60%), url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=500&q=80');">
+                <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
+                    <h4 class="text-[16px] font-medium tracking-wide">Freshly Baked Pizza</h4>
+                    <p class="text-[13px] flex items-center mt-0.5 opacity-90">
+                        25 Places <i class="fa-solid fa-caret-right ml-1.5 text-[10px]"></i>
+                    </p>
+                </div>
+            </div>
+
+            <div class="relative h-[320px] rounded-md overflow-hidden bg-cover bg-center cursor-pointer group shadow-inner" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 60%), url('https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=500&q=80');">
+                <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
+                    <h4 class="text-[16px] font-medium tracking-wide">Sweet Tooth Cravings</h4>
+                    <p class="text-[13px] flex items-center mt-0.5 opacity-90">
+                        12 Places <i class="fa-solid fa-caret-right ml-1.5 text-[10px]"></i>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-50 mt-16 py-12 border-t border-gray-200">
+        <div class="max-w-[1100px] mx-auto px-4">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <h2 class="text-[30px] font-black italic tracking-tighter select-none text-gray-900">zomato</h2>
+            </div>
+            <hr class="my-8 border-gray-200">
+            <p class="text-[13px] text-gray-400 font-light">
+                © 2026 Zomato Clone. Created for demonstration purposes.
+            </p>
         </div>
     </footer>
 
