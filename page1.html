@@ -3,135 +3,371 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zomato Clone | Food Delivery & Dining</title>
+    <meta name="description" content="Discover the best restaurants, cafes and bars near you. Order food online or book a table for dining out.">
+    <title>Zomato | Food Delivery & Restaurant Reviews</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
+        /* Hero background image with dark overlay so the search bar stays readable */
         .hero-bg {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url('https://b.zmtcdn.com/webfront/0b1c041284ae1f0217b0d2d7334749861632720857.jpeg');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.5)),
+                url('https://b.zmtcdn.com/webfront/0b1c041284ae1f0217b0d2d7334749861632720857.jpeg');
             background-size: cover;
             background-position: center;
         }
     </style>
 </head>
-<body class="font-sans text-gray-800 bg-white antialiased">
 
-    <header class="hero-bg h-[calc(60vh)] min-h-[450px] w-full flex flex-col justify-between pb-12">
-        <nav class="max-w-[1100px] w-full mx-auto px-4 h-16 flex items-center justify-between text-white text-[14px] font-light">
-            <div class="flex items-center">
-                <a href="#" class="hover:scale-105 transition-transform duration-200">
-                    <i class="fa-solid fa-mobile-screen-button mr-2"></i>Get the App
-                </a>
-            </div>
-            <div class="flex items-center gap-7 tracking-wide">
-                <a href="#" class="hover:opacity-80 transition-opacity">Investor Relations</a>
-                <a href="#" class="hover:opacity-80 transition-opacity">Add restaurant</a>
-                <a href="#" class="hover:opacity-80 transition-opacity">Log in</a>
-                <a href="#" class="hover:opacity-80 transition-opacity">Sign up</a>
-            </div>
+<body class="bg-white font-sans text-gray-800 antialiased">
+
+    <!-- =========================================================
+         HEADER + HERO SEARCH
+    ========================================================== -->
+    <header class="hero-bg flex min-h-[460px] w-full flex-col justify-between pb-12">
+
+        <nav class="mx-auto flex h-16 w-full max-w-[1100px] items-center justify-between px-4 text-sm text-white">
+            <a href="#" class="flex items-center gap-2 transition-opacity hover:opacity-80">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+                <span>Get the App</span>
+            </a>
+
+            <ul class="flex items-center gap-7 tracking-wide">
+                <li><a href="#" class="transition-opacity hover:opacity-80">Investor Relations</a></li>
+                <li><a href="#" class="transition-opacity hover:opacity-80">Add restaurant</a></li>
+                <li><a href="#" class="transition-opacity hover:opacity-80">Log in</a></li>
+                <li><a href="#" class="rounded-md bg-white px-4 py-1.5 font-medium text-red-500 transition-colors hover:bg-gray-100">Sign up</a></li>
+            </ul>
         </nav>
 
-        <div class="max-w-[1100px] w-full mx-auto px-4 flex flex-col items-center justify-center flex-grow text-center text-white mb-6">
-            <h1 class="text-[64px] font-black italic tracking-tighter select-none mb-2">zomato</h1>
-            <p class="text-[32px] font-normal leading-tight max-w-[800px] mb-8">
-                Discover the best food & drinks in your city
+        <div class="mx-auto flex w-full max-w-[1100px] flex-grow flex-col items-center justify-center px-4 text-center text-white">
+            <h1 class="mb-2 select-none text-6xl font-black italic tracking-tighter sm:text-7xl">zomato</h1>
+            <p class="mb-8 max-w-[800px] text-2xl font-normal leading-tight sm:text-3xl">
+                Discover the best food &amp; drinks in your city
             </p>
-            
-            <div class="bg-white text-gray-600 rounded-lg shadow-md flex items-center w-full max-w-[760px] h-[54px] overflow-hidden px-3">
-                <div class="flex items-center flex-1 h-full min-w-[180px]">
-                    <i class="fa-solid fa-location-dot text-red-400 text-lg mx-2"></i>
-                    <input type="text" placeholder="Kolkata, West Bengal" class="w-full text-[14px] text-gray-700 outline-none placeholder-gray-400 border-none bg-transparent">
-                    <i class="fa-solid fa-caret-down text-gray-500 text-xs mx-2 cursor-pointer"></i>
+
+            <form action="#" class="flex h-[54px] w-full max-w-[760px] items-center overflow-hidden rounded-lg bg-white px-3 text-gray-600 shadow-md">
+                <div class="flex h-full min-w-[180px] flex-1 items-center">
+                    <i class="fa-solid fa-location-dot mx-2 text-lg text-red-400"></i>
+                    <label for="location" class="sr-only">Delivery location</label>
+                    <input id="location" name="location" type="text" value="Kolkata, West Bengal"
+                        class="h-full w-full border-none bg-transparent text-sm text-gray-700 outline-none placeholder-gray-400">
+                    <i class="fa-solid fa-caret-down mx-2 text-xs text-gray-500"></i>
                 </div>
-                
-                <div class="h-5 w-[1px] bg-gray-300 self-center mx-1"></div>
-                
-                <div class="flex items-center flex-[2] h-full pl-2">
-                    <i class="fa-solid fa-magnifying-glass text-gray-400 text-base mx-2"></i>
-                    <input type="text" placeholder="Search for restaurant, cuisine or a dish" class="w-full text-[14px] text-gray-700 outline-none placeholder-gray-400 border-none bg-transparent">
+
+                <div class="mx-1 h-5 w-px self-center bg-gray-300"></div>
+
+                <div class="flex h-full flex-[2] items-center pl-2">
+                    <i class="fa-solid fa-magnifying-glass mx-2 text-base text-gray-400"></i>
+                    <label for="search" class="sr-only">Search for restaurants, cuisines or dishes</label>
+                    <input id="search" name="search" type="text" placeholder="Search for restaurant, cuisine or a dish"
+                        class="h-full w-full border-none bg-transparent text-sm text-gray-700 outline-none placeholder-gray-400">
                 </div>
-            </div>
+            </form>
         </div>
     </header>
 
-    <section class="max-w-[1100px] mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div class="group border border-gray-200 rounded-xl overflow-hidden cursor-pointer hover:shadow-md transition-shadow duration-200">
-            <div class="h-[160px] overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=500&q=80" alt="Order Online" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-            </div>
-            <div class="p-4 bg-white">
-                <h3 class="text-[18px] font-medium text-gray-800">Order Online</h3>
-                <p class="text-[14px] text-gray-500 mt-1">Stay home and order to your doorstep</p>
-            </div>
-        </div>
-        
-        <div class="group border border-gray-200 rounded-xl overflow-hidden cursor-pointer hover:shadow-md transition-shadow duration-200">
-            <div class="h-[160px] overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=500&q=80" alt="Dining" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-            </div>
-            <div class="p-4 bg-white">
-                <h3 class="text-[18px] font-medium text-gray-800">Dining</h3>
-                <p class="text-[14px] text-gray-500 mt-1">View the city's favourite dining venues</p>
-            </div>
-        </div>
-    </section>
-    <section class="max-w-[1100px] mx-auto px-4 py-8">
-        <h2 class="text-[32px] font-medium text-gray-800 tracking-wide">Collections</h2>
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mt-1 mb-6 text-[15px]">
-            <p class="text-gray-500 font-light max-w-[750px]">
-                Explore curated lists of top restaurants, cafes, and bars in your area, based on trends
-            </p>
-            <a href="#" class="text-red-400 flex items-center shrink-0 hover:text-red-500 transition-colors">
-                All collections in Kolkata <i class="fa-solid fa-caret-right ml-1.5 text-xs"></i>
+    <main>
+
+        <!-- =========================================================
+             ORDER ONLINE / DINING SHORTCUTS
+        ========================================================== -->
+        <section class="mx-auto grid max-w-[1100px] grid-cols-1 gap-5 px-4 py-10 md:grid-cols-2">
+            <a href="#" class="group overflow-hidden rounded-xl border border-gray-200 transition-shadow duration-200 hover:shadow-md">
+                <div class="h-40 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=500&q=80"
+                        alt="Delivery bag being handed over at a doorstep"
+                        class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105">
+                </div>
+                <div class="bg-white p-4">
+                    <h3 class="text-lg font-medium text-gray-800">Order Online</h3>
+                    <p class="mt-1 text-sm text-gray-500">Stay home and order to your doorstep</p>
+                </div>
             </a>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="relative h-[320px] rounded-md overflow-hidden bg-cover bg-center cursor-pointer group shadow-inner" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 60%), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=500&q=80');">
-                <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
-                    <h4 class="text-[16px] font-medium tracking-wide">Top Trending Spots</h4>
-                    <p class="text-[13px] flex items-center mt-0.5 opacity-90">
-                        32 Places <i class="fa-solid fa-caret-right ml-1.5 text-[10px]"></i>
+
+            <a href="#" class="group overflow-hidden rounded-xl border border-gray-200 transition-shadow duration-200 hover:shadow-md">
+                <div class="h-40 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=500&q=80"
+                        alt="Friends having dinner together at a restaurant table"
+                        class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105">
+                </div>
+                <div class="bg-white p-4">
+                    <h3 class="text-lg font-medium text-gray-800">Dining</h3>
+                    <p class="mt-1 text-sm text-gray-500">View the city's favourite dining venues</p>
+                </div>
+            </a>
+        </section>
+
+        <!-- =========================================================
+             COLLECTIONS
+        ========================================================== -->
+        <section class="mx-auto max-w-[1100px] px-4 py-8">
+            <div class="mb-6 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                    <h2 class="text-3xl font-medium tracking-wide text-gray-800">Collections</h2>
+                    <p class="mt-1 max-w-[750px] text-sm font-light text-gray-500">
+                        Explore curated lists of top restaurants, cafes, and bars in your area, based on trends
                     </p>
+                </div>
+                <a href="#" class="flex shrink-0 items-center text-red-400 transition-colors hover:text-red-500">
+                    All collections in Kolkata
+                    <i class="fa-solid fa-caret-right ml-1.5 text-xs"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4">
+                <a href="#" class="group relative block h-80 overflow-hidden rounded-md bg-cover bg-center shadow-inner"
+                   style="background-image: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 60%), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=500&q=80');">
+                    <div class="absolute inset-x-0 bottom-0 p-4 text-white">
+                        <h3 class="text-base font-medium tracking-wide">Top Trending Spots</h3>
+                        <p class="mt-0.5 flex items-center text-xs opacity-90">
+                            32 Places <i class="fa-solid fa-caret-right ml-1.5 text-[10px]"></i>
+                        </p>
+                    </div>
+                </a>
+
+                <a href="#" class="group relative block h-80 overflow-hidden rounded-md bg-cover bg-center shadow-inner"
+                   style="background-image: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 60%), url('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=500&q=80');">
+                    <div class="absolute inset-x-0 bottom-0 p-4 text-white">
+                        <h3 class="text-base font-medium tracking-wide">Best Luxury Dining</h3>
+                        <p class="mt-0.5 flex items-center text-xs opacity-90">
+                            18 Places <i class="fa-solid fa-caret-right ml-1.5 text-[10px]"></i>
+                        </p>
+                    </div>
+                </a>
+
+                <a href="#" class="group relative block h-80 overflow-hidden rounded-md bg-cover bg-center shadow-inner"
+                   style="background-image: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 60%), url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=500&q=80');">
+                    <div class="absolute inset-x-0 bottom-0 p-4 text-white">
+                        <h3 class="text-base font-medium tracking-wide">Freshly Baked Pizza</h3>
+                        <p class="mt-0.5 flex items-center text-xs opacity-90">
+                            25 Places <i class="fa-solid fa-caret-right ml-1.5 text-[10px]"></i>
+                        </p>
+                    </div>
+                </a>
+
+                <a href="#" class="group relative block h-80 overflow-hidden rounded-md bg-cover bg-center shadow-inner"
+                   style="background-image: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 60%), url('https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=500&q=80');">
+                    <div class="absolute inset-x-0 bottom-0 p-4 text-white">
+                        <h3 class="text-base font-medium tracking-wide">Sweet Tooth Cravings</h3>
+                        <p class="mt-0.5 flex items-center text-xs opacity-90">
+                            12 Places <i class="fa-solid fa-caret-right ml-1.5 text-[10px]"></i>
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             POPULAR CUISINES
+        ========================================================== -->
+        <section class="mx-auto max-w-[1100px] px-4 py-8">
+            <h2 class="mb-6 text-3xl font-medium tracking-wide text-gray-800">What's on your mind?</h2>
+
+            <div class="flex gap-6 overflow-x-auto pb-2">
+                <a href="#" class="flex flex-shrink-0 flex-col items-center gap-2 text-center">
+                    <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?auto=format&fit=crop&w=200&q=80"
+                        alt="Plate of biryani" loading="lazy" class="h-20 w-20 rounded-full object-cover shadow-sm">
+                    <span class="text-sm text-gray-600">Biryani</span>
+                </a>
+                <a href="#" class="flex flex-shrink-0 flex-col items-center gap-2 text-center">
+                    <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?auto=format&fit=crop&w=200&q=80"
+                        alt="Cheese pizza slice" loading="lazy" class="h-20 w-20 rounded-full object-cover shadow-sm">
+                    <span class="text-sm text-gray-600">Pizza</span>
+                </a>
+                <a href="#" class="flex flex-shrink-0 flex-col items-center gap-2 text-center">
+                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=200&q=80"
+                        alt="Stacked burger with fries" loading="lazy" class="h-20 w-20 rounded-full object-cover shadow-sm">
+                    <span class="text-sm text-gray-600">Burger</span>
+                </a>
+                <a href="#" class="flex flex-shrink-0 flex-col items-center gap-2 text-center">
+                    <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=200&q=80"
+                        alt="Steamed momos with chutney" loading="lazy" class="h-20 w-20 rounded-full object-cover shadow-sm">
+                    <span class="text-sm text-gray-600">Momos</span>
+                </a>
+                <a href="#" class="flex flex-shrink-0 flex-col items-center gap-2 text-center">
+                    <img src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&w=200&q=80"
+                        alt="Slice of chocolate cake" loading="lazy" class="h-20 w-20 rounded-full object-cover shadow-sm">
+                    <span class="text-sm text-gray-600">Cake</span>
+                </a>
+                <a href="#" class="flex flex-shrink-0 flex-col items-center gap-2 text-center">
+                    <img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=200&q=80"
+                        alt="North Indian thali" loading="lazy" class="h-20 w-20 rounded-full object-cover shadow-sm">
+                    <span class="text-sm text-gray-600">North Indian</span>
+                </a>
+                <a href="#" class="flex flex-shrink-0 flex-col items-center gap-2 text-center">
+                    <img src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?auto=format&fit=crop&w=200&q=80"
+                        alt="Noodles in a bowl" loading="lazy" class="h-20 w-20 rounded-full object-cover shadow-sm">
+                    <span class="text-sm text-gray-600">Chinese</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             TOP RESTAURANT CHAINS
+        ========================================================== -->
+        <section class="mx-auto max-w-[1100px] px-4 py-8">
+            <h2 class="mb-6 text-3xl font-medium tracking-wide text-gray-800">Top restaurant chains in Kolkata</h2>
+
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+                <a href="#" class="group rounded-xl border border-gray-200 transition-shadow hover:shadow-md">
+                    <div class="h-36 overflow-hidden rounded-t-xl">
+                        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=500&q=80"
+                            alt="Interior of a casual dining restaurant" loading="lazy"
+                            class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105">
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-start justify-between">
+                            <h3 class="text-base font-medium text-gray-800">Behrouz Biryani</h3>
+                            <span class="flex items-center gap-1 rounded bg-green-700 px-1.5 py-0.5 text-xs font-medium text-white">
+                                4.3 <i class="fa-solid fa-star text-[10px]"></i>
+                            </span>
+                        </div>
+                        <p class="mt-1 text-sm text-gray-500">Biryani, Mughlai &middot; ₹400 for two</p>
+                        <p class="mt-1 text-xs text-gray-400">Park Street, Salt Lake, New Town</p>
+                    </div>
+                </a>
+
+                <a href="#" class="group rounded-xl border border-gray-200 transition-shadow hover:shadow-md">
+                    <div class="h-36 overflow-hidden rounded-t-xl">
+                        <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=500&q=80"
+                            alt="Cafe counter with pastries on display" loading="lazy"
+                            class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105">
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-start justify-between">
+                            <h3 class="text-base font-medium text-gray-800">Theobroma</h3>
+                            <span class="flex items-center gap-1 rounded bg-green-700 px-1.5 py-0.5 text-xs font-medium text-white">
+                                4.5 <i class="fa-solid fa-star text-[10px]"></i>
+                            </span>
+                        </div>
+                        <p class="mt-1 text-sm text-gray-500">Bakery, Desserts &middot; ₹350 for two</p>
+                        <p class="mt-1 text-xs text-gray-400">Camac Street, Ballygunge, Howrah</p>
+                    </div>
+                </a>
+
+                <a href="#" class="group rounded-xl border border-gray-200 transition-shadow hover:shadow-md">
+                    <div class="h-36 overflow-hidden rounded-t-xl">
+                        <img src="https://images.unsplash.com/photo-1517022812141-23620dba5c23?auto=format&fit=crop&w=500&q=80"
+                            alt="Bowl of ramen with toppings" loading="lazy"
+                            class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105">
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-start justify-between">
+                            <h3 class="text-base font-medium text-gray-800">Wow! Momo</h3>
+                            <span class="flex items-center gap-1 rounded bg-green-700 px-1.5 py-0.5 text-xs font-medium text-white">
+                                4.1 <i class="fa-solid fa-star text-[10px]"></i>
+                            </span>
+                        </div>
+                        <p class="mt-1 text-sm text-gray-500">Tibetan, Chinese &middot; ₹250 for two</p>
+                        <p class="mt-1 text-xs text-gray-400">Lake Town, Garia, Behala</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             APP DOWNLOAD BANNER
+        ========================================================== -->
+        <section class="mx-auto max-w-[1100px] px-4 py-12">
+            <div class="flex flex-col items-center justify-between gap-6 rounded-2xl bg-red-50 px-8 py-10 sm:flex-row">
+                <div>
+                    <h2 class="text-2xl font-medium text-gray-800">Get the Zomato app</h2>
+                    <p class="mt-1 text-sm text-gray-500">We will send you a link, open it on your phone to download the app</p>
+                </div>
+                <div class="flex gap-3">
+                    <a href="#" class="flex items-center gap-2 rounded-lg bg-gray-900 px-4 py-2.5 text-white transition-opacity hover:opacity-90">
+                        <i class="fa-brands fa-apple text-xl"></i>
+                        <span class="text-sm">App Store</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-2 rounded-lg bg-gray-900 px-4 py-2.5 text-white transition-opacity hover:opacity-90">
+                        <i class="fa-brands fa-google-play text-lg"></i>
+                        <span class="text-sm">Google Play</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+    <footer class="mt-8 border-t border-gray-200 bg-gray-50 py-12">
+        <div class="mx-auto max-w-[1100px] px-4">
+
+            <div class="grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-5">
+                <div class="col-span-2 sm:col-span-3 md:col-span-1">
+                    <h2 class="select-none text-2xl font-black italic tracking-tighter text-gray-900">zomato</h2>
+                    <p class="mt-3 text-sm text-gray-500">© 2026 Zomato Clone. Created for demonstration purposes.</p>
+                    <div class="mt-4 flex gap-4 text-gray-400">
+                        <a href="#" aria-label="Zomato on LinkedIn" class="hover:text-gray-600"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#" aria-label="Zomato on Instagram" class="hover:text-gray-600"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="Zomato on X" class="hover:text-gray-600"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" aria-label="Zomato on YouTube" class="hover:text-gray-600"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="mb-3 text-sm font-medium text-gray-800">Company</h3>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li><a href="#" class="hover:text-gray-700">About Us</a></li>
+                        <li><a href="#" class="hover:text-gray-700">Zomato for Business</a></li>
+                        <li><a href="#" class="hover:text-gray-700">Blog</a></li>
+                        <li><a href="#" class="hover:text-gray-700">Careers</a></li>
+                        <li><a href="#" class="hover:text-gray-700">Team</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="mb-3 text-sm font-medium text-gray-800">For Restaurants</h3>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li><a href="#" class="hover:text-gray-700">Partner with us</a></li>
+                        <li><a href="#" class="hover:text-gray-700">Apps for you</a></li>
+                        <li><a href="#" class="hover:text-gray-700">Learning centre</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="mb-3 text-sm font-medium text-gray-800">Learn more</h3>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li><a href="#" class="hover:text-gray-700">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-gray-700">Security</a></li>
+                        <li><a href="#" class="hover:text-gray-700">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-gray-700">Sitemap</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="mb-3 text-sm font-medium text-gray-800">Social Links</h3>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li><a href="#" class="hover:text-gray-700">Linkedin</a></li>
+                        <li><a href="#" class="hover:text-gray-700">Instagram</a></li>
+                        <li><a href="#" class="hover:text-gray-700">News</a></li>
+                        <li><a href="#" class="hover:text-gray-700">X (Twitter)</a></li>
+                    </ul>
                 </div>
             </div>
 
-            <div class="relative h-[320px] rounded-md overflow-hidden bg-cover bg-center cursor-pointer group shadow-inner" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 60%), url('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=500&q=80');">
-                <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
-                    <h4 class="text-[16px] font-medium tracking-wide">Best Luxury Dining</h4>
-                    <p class="text-[13px] flex items-center mt-0.5 opacity-90">
-                        18 Places <i class="fa-solid fa-caret-right ml-1.5 text-[10px]"></i>
-                    </p>
-                </div>
-            </div>
-
-            <div class="relative h-[320px] rounded-md overflow-hidden bg-cover bg-center cursor-pointer group shadow-inner" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 60%), url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=500&q=80');">
-                <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
-                    <h4 class="text-[16px] font-medium tracking-wide">Freshly Baked Pizza</h4>
-                    <p class="text-[13px] flex items-center mt-0.5 opacity-90">
-                        25 Places <i class="fa-solid fa-caret-right ml-1.5 text-[10px]"></i>
-                    </p>
-                </div>
-            </div>
-
-            <div class="relative h-[320px] rounded-md overflow-hidden bg-cover bg-center cursor-pointer group shadow-inner" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 60%), url('https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=500&q=80');">
-                <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
-                    <h4 class="text-[16px] font-medium tracking-wide">Sweet Tooth Cravings</h4>
-                    <p class="text-[13px] flex items-center mt-0.5 opacity-90">
-                        12 Places <i class="fa-solid fa-caret-right ml-1.5 text-[10px]"></i>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-gray-50 mt-16 py-12 border-t border-gray-200">
-        <div class="max-w-[1100px] mx-auto px-4">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                <h2 class="text-[30px] font-black italic tracking-tighter select-none text-gray-900">zomato</h2>
-            </div>
             <hr class="my-8 border-gray-200">
-            <p class="text-[13px] text-gray-400 font-light">
-                © 2026 Zomato Clone. Created for demonstration purposes.
+
+            <!-- SEO style city links, common on real Zomato footers -->
+            <p class="text-xs leading-relaxed text-gray-400">
+                Order food online in
+                <a href="#" class="hover:text-gray-600">Kolkata</a>,
+                <a href="#" class="hover:text-gray-600">Mumbai</a>,
+                <a href="#" class="hover:text-gray-600">Delhi</a>,
+                <a href="#" class="hover:text-gray-600">Bangalore</a>,
+                <a href="#" class="hover:text-gray-600">Pune</a>,
+                <a href="#" class="hover:text-gray-600">Hyderabad</a>,
+                <a href="#" class="hover:text-gray-600">Chennai</a>,
+                <a href="#" class="hover:text-gray-600">Ahmedabad</a> and
+                <a href="#" class="hover:text-gray-600">other cities</a>.
+            </p>
+
+            <p class="mt-4 text-xs font-light text-gray-400">
+                By continuing past this page, you agree to our Terms of Service, Cookie Policy, Privacy Policy and Content Policies.
             </p>
         </div>
     </footer>
