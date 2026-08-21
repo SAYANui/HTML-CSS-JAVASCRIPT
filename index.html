@@ -1,88 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-<h1> <!DOCTYPE html>
-<html lang="en">
-<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive CSS Showcase</title>
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #0a0a0a;
+        /* ==========================================
+           1. RESET & BASE STYLES
+           ================================---------- */
+        * {
+            box-sizing: border-box;
             margin: 0;
-            font-family: 'Segoe UI', sans-serif;
+            padding: 0;
         }
 
-        .btn-3d {
-            position: relative;
-            padding: 15px 35px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #fff;
-            background: #1a1a1a;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            outline: none;
-            transition: all 0.3s ease;
-            /* The 3D Base */
-            box-shadow: 0 8px 0 #000, 
-                        0 15px 20px rgba(0, 0, 0, 0.35);
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        /* ==========================================
+           2. SELECTORS & TYPOGRAPHY
+           ================================---------- */
+        h1, h2, h3 {
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+
+        /* Element selector with pseudo-class */
+        p {
+            margin-bottom: 15px;
+        }
+
+        /* Class selector */
+        .highlight {
+            background-color: #ffeeba;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        /* ID selector */
+        #main-title {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
 
-        /* Hover Animation & Glow */
-        .btn-3d:hover {
-            background: #222;
+        /* Attribute selector */
+        input[type="text"] {
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 300px;
+            margin-bottom: 15px;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        /* ==========================================
+           3. BOX MODEL & CONTAINERS
+           ================================---------- */
+        .section-card {
+            background: #ffffff;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid #3498db;
+        }
+
+        /* ==========================================
+           4. FLEXBOX LAYOUT
+           ================================---------- */
+        .flex-container {
+            display: flex;
+            gap: 15px;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .flex-item {
+            flex: 1;
+            min-width: 200px;
+            background: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        /* ==========================================
+           5. CSS GRID LAYOUT
+           ================================---------- */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .grid-item {
+            background: #2ecc71;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 6px;
+        }
+
+        /* ==========================================
+           6. BUTTONS, STATES & TRANSITIONS
+           ================================---------- */
+        .btn {
+            display: inline-block;
+            background-color: #e74c3c;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            /* Transition effect */
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+        }
+
+        /* Pseudo-classes: Hover, Active */
+        .btn:hover {
+            background-color: #c0392b;
             transform: translateY(-2px);
-            box-shadow: 0 10px 0 #000, 
-                        0 0 25px rgba(0, 212, 255, 0.6), /* Cyan Glow */
-                        0 20px 30px rgba(0, 0, 0, 0.4);
-            color: #00d4ff;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
 
-        /* Click Effect (Pressing the button down) */
-        .btn-3d:active {
-            transform: translateY(6px);
-            box-shadow: 0 2px 0 #000, 
-                        0 5px 10px rgba(0, 0, 0, 0.5);
-            transition: all 0.1s;
+        .btn:active {
+            transform: translateY(0);
         }
 
-        /* Subtle Inner Light */
-        .btn-3d::after {
-            content: '';
-            position: absolute;
-            top: 5px;
-            left: 5px;
-            right: 5px;
-            height: 40%;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 8px 8px 0 0;
-            pointer-events: none;
+        /* ==========================================
+           7. GRADIENTS & VISUAL EFFECTS
+           ================================---------- */
+        .gradient-box {
+            height: 100px;
+            border-radius: 8px;
+            /* Linear Gradient background */
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        /* ==========================================
+           8. ANIMATIONS & KEYFRAMES
+           ================================---------- */
+        .pulsing-circle {
+            width: 50px;
+            height: 50px;
+            background-color: #f39c12;
+            border-radius: 50%;
+            margin: 20px auto;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(243, 156, 18, 0.7);
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 15px rgba(243, 156, 18, 0);
+            }
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(243, 156, 18, 0);
+            }
+        }
+
+        /* ==========================================
+           9. RESPONSIVE MEDIA QUERIES
+           ================================---------- */
+        @media (max-width: 600px) {
+            #main-title {
+                font-size: 1.8rem;
+            }
+            .section-card {
+                padding: 15px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <button class="btn-3d">Arcade Legend</button>
+    <h1 id="main-title">CSS Master Showcase</h1>
 
+    <!-- Typography & Selectors -->
+    <div class="section-card">
+        <h2>1. Typography & Selectors</h2>
+        <p>This paragraph demonstrates standard text formatting. You can use <span class="highlight">highlight classes</span> to draw attention to specific words.</p>
+        <input type="text" placeholder="Type something here (focus state)...">
+    </div>
 
+    <!-- Flexbox -->
+    <div class="section-card">
+        <h2>2. Flexbox Layout</h2>
+        <div class="flex-container">
+            <div class="flex-item">Flex 1</div>
+            <div class="flex-item">Flex 2</div>
+            <div class="flex-item">Flex 3</div>
+        </div>
+    </div>
 
+    <!-- CSS Grid -->
+    <div class="section-card">
+        <h2>3. CSS Grid Layout</h2>
+        <div class="grid-container">
+            <div class="grid-item">Grid A</div>
+            <div class="grid-item">Grid B</div>
+            <div class="grid-item">Grid C</div>
+            <div class="grid-item">Grid D</div>
+        </div>
+    </div>
 
-    
+    <!-- Buttons & Transitions -->
+    <div class="section-card">
+        <h2>4. Buttons & Transitions</h2>
+        <button class="btn">Hover Over Me</button>
+    </div>
 
-</body>
-</html></h1>
+    <!-- Gradients -->
+    <div class="section-card">
+        <h2>5. Gradients</h2>
+        <div class="gradient-box">
+            Beautiful CSS Gradient Background
+        </div>
+    </div>
+
+    <!-- Animations -->
+    <div class="section-card" style="text-align: center;">
+        <h2>6. CSS Keyframe Animations</h2>
+        <p>Infinite pulsing animation using @keyframes:</p>
+        <div class="pulsing-circle"></div>
+    </div>
+
 </body>
 </html>
